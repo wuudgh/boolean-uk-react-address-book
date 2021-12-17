@@ -9,22 +9,19 @@ export default function App() {
 
   // [TODO] Write a useEffect to fetch contacts here...
   useEffect(() => {
-    const fetchContact = async() => {
-      try{
-        const res = await fetch('http://localhost:3030/contacts')
+    const fetchContact = async () => {
+      try {
+        const res = await fetch("http://localhost:3030/contacts");
         const data = await res.json();
         console.log(data);
-        setContacts(data)
+        setContacts(data);
+      } catch (error) {
+        console.log("error", error);
       }
-      catch(error){
-        console.log('error', error);
-      }
-    }
+    };
 
     fetchContact();
-
-  }, [])
-
+  }, []);
   return (
     <>
       <ContactsList
